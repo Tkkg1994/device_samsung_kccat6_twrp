@@ -27,18 +27,18 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
 BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3b7 dwc3_msm.cpu_to_affin=1
 BOARD_KERNEL_BASE :=  0x00000000
-BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_PAGESIZE := 4096
 # OEM uses non standard offsets for base, ramdisk, and tags.
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --dt device/samsung/kccat6/prebuilt/dtb --tags_offset 0x02400000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --dt device/samsung/kccat6/prebuilt/dtb
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2621440000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12577636352
-BOARD_FLASH_BLOCK_SIZE := 131072
+# page size multiplied by 64
+BOARD_FLASH_BLOCK_SIZE := 262144
 
-# See device.mk for kernel
-#TARGET_PREBUILT_KERNEL := device/samsung/kccat6/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/kccat6/prebuilt/kernel
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 

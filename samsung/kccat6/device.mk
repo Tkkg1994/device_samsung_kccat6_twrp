@@ -9,10 +9,6 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/kccat6/overlay
 
 LOCAL_PATH := device/samsung/kccat6
 
-
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/kernel:kernel
-
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.recovery.qcom.rc

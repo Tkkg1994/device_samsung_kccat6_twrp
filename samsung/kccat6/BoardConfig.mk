@@ -26,10 +26,10 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
 BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3b7 dwc3_msm.cpu_to_affin=1
-BOARD_KERNEL_BASE :=  0x023fff00
+BOARD_KERNEL_BASE :=  0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
-# OEM uses non standard offsets for base, kernel, ramdisk, second and tags.
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0xfdc08100 --ramdisk_offset 0x00200100 --second_offset 0xfeb00100 --tags_offset 0x02400000 --dt device/samsung/kccat6/prebuilt/dtb
+# OEM uses non standard offsets for base, ramdisk, and tags.
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02600000 --tags_offset 0x02400000 --dt device/samsung/kccat6/prebuilt/dtb
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640

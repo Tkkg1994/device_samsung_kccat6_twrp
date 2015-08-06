@@ -4,7 +4,7 @@ USE_CAMERA_STUB := true
 -include vendor/samsung/kccat6/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := kccat6
+TARGET_BOOTLOADER_BOARD_NAME := APQ8084
 
 # Platform
 TARGET_BOARD_PLATFORM := apq8084

@@ -40,7 +40,11 @@ BOARD_FLASH_BLOCK_SIZE := 262144
 
 TARGET_PREBUILT_KERNEL := device/samsung/kccat6/prebuilt/kernel
 
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/f9200000.ssusb/f9200000.dwc/gadget/lun0/file
+
+# The two directions under this comment are both linked to the real file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun/file
+#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 #TWRP specific build flags
 TW_THEME := portrait_hdpi

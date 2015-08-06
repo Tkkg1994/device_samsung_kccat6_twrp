@@ -1,6 +1,21 @@
 import /init.recovery.${ro.hardware}.rc
+on early-init
+     setsebool debugfs 1
+
+    # Apply strict SELinux checking of PROT_EXEC on mmap/mprotect calls.
+    write /sys/fs/selinux/checkreqprot 0
+
+    # Set the security context for the init process.
+    # This should occur before anything else (e.g. ueventd) is started.
+    setcon u:r:init:s0
+
+    start ueventd
+    start healthd
 
 on init
+    setenforce 0
+    setprop ro.boot.selinux 0
+
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
     export LD_LIBRARY_PATH .:/sbin
     export ANDROID_ROOT /system
@@ -47,11 +62,19 @@ on boot
 
 service ueventd /sbin/ueventd
     critical
+    seclabel u:r:ueventd:s0
+
+service healthd /sbin/healthd -n
+    critical
+    seclabel u:r:healthd:s0
 
 service recovery /sbin/recovery
+    seclabel u:r:recovery:s0
 
-service adbd /sbin/adbd recovery
+service adbd /sbin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
     disabled
+    socket adbd stream 660 system system
+    seclabel u:r:adbd:s0
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1

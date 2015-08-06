@@ -13,7 +13,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP -DQCOM_HARDWARE
 
 # Architecture
 TARGET_CPU_VARIANT := krait
@@ -25,7 +25,7 @@ TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
-BOARD_KERNEL_CMDLINE :=  console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3b7 dwc3_msm.cpu_to_affin=1
+BOARD_KERNEL_CMDLINE :=  console=null androidboot.selinux=permissive androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x3b7 dwc3_msm.cpu_to_affin=1
 BOARD_KERNEL_BASE :=  0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 # OEM uses non standard offsets for base, ramdisk, and tags.

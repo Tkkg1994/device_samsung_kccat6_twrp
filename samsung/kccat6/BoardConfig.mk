@@ -61,9 +61,10 @@ TW_MAX_BRIGHTNESS := 255
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_CRYPTO := true
-TW_NO_EXFAT_FUSE := false
-TW_NO_EXFAT := false
+TW_NO_EXFAT_FUSE := true
+TW_NO_EXFAT := true
 GET_RECOVERY_QCOM_RTC_FIX := true
+TW_TARGET_USES_QCOM_BSP := true
 # TW_EXCLUDE_MTP := true # Why exclude MTP?
 # LZMA ramdisk
 # BOARD_CUSTOM_BOOTIMG_MK := device/samsung/kccat6/custombootimg.mk # Does kernel support LZMA?

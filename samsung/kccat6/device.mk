@@ -11,7 +11,8 @@ LOCAL_PATH := device/samsung/kccat6
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.recovery.qcom.rc
+    init.recovery.qcom.rc \
+    init.recovery.usb.rc
 
 $(call inherit-product, build/target/product/full.mk)
 

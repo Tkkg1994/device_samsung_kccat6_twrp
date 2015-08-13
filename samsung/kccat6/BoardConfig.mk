@@ -53,10 +53,11 @@ TARGET_RECOVERY_INITRC := device/samsung/kccat6/recovery/init.rc
 TARGET_RECOVERY_FSTAB := device/samsung/kccat6/recovery/etc/recovery.fstab
 # /data/media exists
 RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TW_BRIGHTNESS_PATH := "/sys/devices/virtual/lcd/panel/panel/brightness"
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true

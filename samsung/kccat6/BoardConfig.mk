@@ -14,6 +14,7 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno420
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DQCOM_BSP -DQCOM_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60
 
 # Architecture
 TARGET_CPU_VARIANT := krait
@@ -42,10 +43,6 @@ TARGET_PREBUILT_KERNEL := device/samsung/kccat6/prebuilt/kernel
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/f9200000.ssusb/f9200000.dwc3/gadget/lun0/file
 
-# The two directions under this comment are both linked to the real file
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/f_mass_storage/lun/file
-#TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
-
 #TWRP specific build flags
 TW_THEME := portrait_hdpi
 TWHAVE_SELINUX := true
@@ -65,7 +62,7 @@ TW_INCLUDE_CRYPTO := true
 TW_NO_EXFAT_FUSE := false
 TW_NO_EXFAT := false
 GET_RECOVERY_QCOM_RTC_FIX := true
-# TW_EXCLUDE_MTP := true # Why exclude MTP?
+TW_MTP_DEVICE := /dev/usb_mtp_gadget
 # LZMA ramdisk
 # BOARD_CUSTOM_BOOTIMG_MK := device/samsung/kccat6/custombootimg.mk # Does kernel support LZMA?
 # Use this flag if the board has a ext4 partition larger than 2gb

@@ -9,9 +9,17 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/kccat6/overlay
 
 LOCAL_PATH := device/samsung/kccat6
 
+# System Properties
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,conn_gadget
+
 PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.recovery.usb.rc
+
+# Time Zone data
+PRODUCT_COPY_FILES += \
+    bionic/libc/zoneinfo/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
 
 $(call inherit-product, build/target/product/full.mk)
 

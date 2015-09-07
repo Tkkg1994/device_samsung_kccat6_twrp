@@ -48,6 +48,10 @@ TW_THEME := portrait_hdpi
 TWHAVE_SELINUX := true
 TARGET_RECOVERY_INITRC := device/samsung/kccat6/recovery/init.rc
 TARGET_RECOVERY_FSTAB := device/samsung/kccat6/recovery/etc/recovery.fstab
+
+#Support for F2FS
+TARGET_USERIMAGES_USE_F2FS := true
+
 # /data/media exists
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_MISC_PARTITION := true
